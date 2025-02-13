@@ -10,5 +10,5 @@ jobs:
   say-hello:
     runs-on: ubuntu-latest
     steps:
-      - name: imprimir mensaje
+      - name: imprimir mensajes
         run: echo "Hola, esto es un Pipeline en  Actions!"
