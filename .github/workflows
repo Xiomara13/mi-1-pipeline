@@ -6,9 +6,9 @@ on:
       - main
 
 jobs:
-  build:
+  say-hello:
     runs-on: ubuntu-latest
     steps:
-      - name: Verificar el Pipeline
+      - name: imprimir mensaje
         run: echo "¡Hola, esto es un Pipeline en GitHub Actions!"
 
