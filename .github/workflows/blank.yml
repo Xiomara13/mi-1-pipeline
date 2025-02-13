@@ -9,12 +9,16 @@ on:
 jobs:
   say-hello:
     runs-on: ubuntu-latest
-    steps:
-      - name: imprimir mensajes
-        run: echo "Hello, iniciando en pipeline!"
+    env:
+      MI_MENSAJE: "mensaje personalizado por medio de una variable"
       
-      - name: verificar la fecha y la hora
-        run: date
+    steps:
+      - name: imprimir mensaje solo en main
+        if: github.ref == 'refs/heads/main'
+        run: echo "Hello, desde main!"
+      
+      - name: mensaje personalizado
+        run: echo "${{ env.MI_MENSAJE}}"
 
       - name: instalar Node.js
         uses: actions/setup-node@v3
@@ -24,6 +28,10 @@ jobs:
       - name: verificar version Node.js
         run: node -v
 
+      - name: imprimir mensaje si Node.js se instalo correctamente
+        if: success()
+        run: echo "Node.js se instalo correctamente"
+     
       - name: mensaje final
-        run: echo "se compelto con exito el pipeline"
+        run: echo "se compelto con exito el pipeline añadiendo variables y condiciones"
       
