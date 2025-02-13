@@ -1,1 +1,14 @@
+name: Mi Primer Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verificar el Pipeline
+        run: echo "¡Hola, esto es un Pipeline en GitHub Actions!"
 
