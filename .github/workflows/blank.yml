@@ -1,5 +1,5 @@
 
-name: mi primer pipeline
+name: mi primer pipeline mejorado
 
 on:
   push:
@@ -11,4 +11,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: imprimir mensajes
-        run: echo "Hola, esto es un Pipeline en  Actions!"
+        run: echo "Hello, iniciando en pipeline!"
+      
+      - name: verificar la fecha y la hora
+        run: date
+
+      - name: comprovar version  de Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: imprimir version Node.js
+        run: node -v
+
+      - name: mensaje final
+        run: echo "se compelto con exito el pipeline"
+      
