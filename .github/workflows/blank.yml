@@ -16,12 +16,12 @@ jobs:
       - name: verificar la fecha y la hora
         run: date
 
-      - name: comprovar version  de Node.js
+      - name: instalar Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '14'
 
-      - name: imprimir version Node.js
+      - name: verificar version Node.js
         run: node -v
 
       - name: mensaje final
