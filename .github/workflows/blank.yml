@@ -1,5 +1,5 @@
 
-name: mi primer pipeline mejorado
+name: mi primer pipeline mejorado con matrix
 
 on:
   push:
@@ -7,31 +7,24 @@ on:
       - main
 
 jobs:
-  say-hello:
+  probar-node:
     runs-on: ubuntu-latest
-    env:
-      MI_MENSAJE: "mensaje personalizado por medio de una variable"
+    strategy:
+      matrix:
+        version: [12, 14, 16]
       
     steps:
-      - name: imprimir mensaje solo en main
-        if: github.ref == 'refs/heads/main'
-        run: echo "Hello, desde main!"
-      
-      - name: mensaje personalizado
-        run: echo "${{ env.MI_MENSAJE}}"
-
-      - name: instalar Node.js
+      - name: instalar Node.js ${{ matrix.version}}
         uses: actions/setup-node@v3
         with:
-          node-version: '14'
-
-      - name: verificar version Node.js
+          node-version: ${{ matrix.version}}
+      
+      - name: version del Node.js
         run: node -v
 
-      - name: imprimir mensaje si Node.js se instalo correctamente
-        if: success()
-        run: echo "Node.js se instalo correctamente"
+      - name: imprimir mensaje personalixzado
+        run: echo "versiones de Node.ja correctas ${{matrix.version }}"
      
       - name: mensaje final
-        run: echo "se compelto con exito el pipeline añadiendo variables y condiciones"
+        run: echo "se compelto con exito para Node.js ${{matrix.version"}}
       
