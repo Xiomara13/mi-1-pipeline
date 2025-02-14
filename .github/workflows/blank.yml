@@ -22,9 +22,9 @@ jobs:
       - name: version del Node.js
         run: node -v
 
-      - name: imprimir mensaje personalixzado
-        run: echo "versiones de Node.ja correctas ${{matrix.version }}"
+      - name: imprimir mensaje personalizado
+        run: echo "versiones de Node.js correctas ${{matrix.version }}"
      
       - name: mensaje final
-        run: echo "se compelto con exito para Node.js ${{matrix.version"}}
+        run: echo "se completo con exito para Node.js ${{matrix.version}}"
       
